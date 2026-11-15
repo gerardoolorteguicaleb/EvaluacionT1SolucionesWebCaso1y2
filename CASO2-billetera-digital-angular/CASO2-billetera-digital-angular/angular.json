@@ -1,0 +1,57 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json", "version": 1, "newProjectRoot": "projects",
+  "projects": {"billetera-digital": {"projectType": "application", "root": "", "sourceRoot": "src", "prefix": "app",
+    "architect": {
+      "build": {
+        "builder": "@angular-devkit/build-angular:application",
+        "options": {
+          "outputPath": "dist/billetera-digital",
+          "index": "src/index.html",
+          "browser": "src/main.ts",
+          "polyfills": [
+            "zone.js"
+          ],
+          "tsConfig": "tsconfig.app.json",
+          "assets": [],
+          "styles": [
+            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "src/styles.css"
+          ]
+        },
+        "configurations": {
+          "production": {
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "2mb",
+                "maximumError": "5mb"
+              }
+            ],
+            "outputHashing": "all"
+          },
+          "development": {
+            "optimization": false,
+            "extractLicenses": false,
+            "sourceMap": true
+          }
+        },
+        "defaultConfiguration": "development"
+      },
+      "serve": {
+        "builder": "@angular-devkit/build-angular:dev-server",
+        "configurations": {
+          "production": {
+            "buildTarget": "billetera-digital:build:production"
+          },
+          "development": {
+            "buildTarget": "billetera-digital:build:development"
+          }
+        },
+        "defaultConfiguration": "development"
+      }
+    }
+  }
+},
+"cli": {
+  "analytics": "43e98a6e-e4f3-413c-9321-b57eca74ecf5"
+}
